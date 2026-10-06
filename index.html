@@ -184,7 +184,38 @@ tr:last-child td{border-bottom:none}
 .toast{position:fixed;bottom:24px;right:24px;background:var(--navy);color:#fff;padding:16px 20px;border-radius:14px;display:flex;align-items:center;gap:12px;box-shadow:0 10px 30px rgba(0,0,0,.2);z-index:50}
 .toast .ok{width:26px;height:26px;background:#16A34A;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 
-@media(max-width:900px){.auth{grid-template-columns:1fr}.auth-left{display:none}.app{grid-template-columns:1fr}.side{display:none}.main{padding:20px}.stats,.grid2,.cols,.choice-grid,.cat-grid{grid-template-columns:1fr}}
+@media(max-width:900px){
+  .auth{grid-template-columns:1fr}
+  .auth-left{display:none}
+  .auth-right{padding:28px 20px;max-width:100%}
+  .app{grid-template-columns:1fr;grid-template-rows:auto 1fr;min-height:100vh}
+  .side{flex-direction:row;align-items:center;padding:10px 12px;overflow-x:auto;gap:6px;position:sticky;top:0;z-index:20;-webkit-overflow-scrolling:touch}
+  .side-logo{display:none}
+  .nav-item{flex-direction:column;gap:3px;padding:8px 10px;font-size:10.5px;min-width:62px;width:auto;text-align:center;margin-bottom:0;position:relative;flex-shrink:0}
+  .nav-item .ic{font-size:18px}
+  .nav-item .count{position:absolute;top:2px;right:6px;margin-left:0;padding:1px 6px;font-size:10px}
+  .side-trial{display:none}
+  .side-user{margin-left:auto;padding:6px 8px;flex-shrink:0}
+  .side-user .nm,.side-user .bz{display:none}
+  .main{padding:16px}
+  .page-head{flex-wrap:wrap;row-gap:10px}
+  .live{order:3;width:100%;justify-content:center}
+  .stats{grid-template-columns:1fr 1fr;gap:10px}
+  .stat{padding:14px}
+  .grid2,.cols,.choice-grid{grid-template-columns:1fr}
+  .cat-grid{grid-template-columns:repeat(3,1fr)}
+  .pills{overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}
+  .pill{flex-shrink:0}
+  table{display:block;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch}
+  .row-btns{flex-wrap:nowrap}
+  .toast{left:16px;right:16px;bottom:16px}
+}
+@media(max-width:480px){
+  .stats{grid-template-columns:1fr}
+  .cat-grid{grid-template-columns:repeat(2,1fr)}
+  .auth-right h2{font-size:24px}
+  .btn{font-size:14px;padding:13px}
+}
 </style>
 </head>
 <body>
@@ -278,7 +309,7 @@ tr:last-child td{border-bottom:none}
 // ----- CONFIGURAÇÃO DO SUPABASE -----
 // Troque pelos valores do SEU projeto em supabase.com > Project Settings > API
 const SUPABASE_URL = 'https://txtbbaojyplqbgtrauop.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR4dGJiYW9qeXBscWJndHJhdW9wIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTEzMDg1OTQsImV4cCI6MjEwNjg4NDU5NH0.Bh1ky-kpOBTXoF0huBuPzmUvRL8YetHwwxP7ZoXDWrw ';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR4dGJiYW9qeXBscWJndHJhdW9wIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTEzMDg1OTQsImV4cCI6MjEwNjg4NDU5NH0.Bh1ky-kpOBTXoF0huBuPzmUvRL8YetHwwxP7ZoXDWrw';
 const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 const FAKE_DOMAIN = '@gestok.local'; // o Gestok usa "usuário", então criamos um e-mail interno
 
